@@ -7,16 +7,137 @@ function getComputerChoice() {
 }
 
 
-function game() {
+let playerPoint = 0;
+let computerPoint = 0;
 
-    let playerPoint = 0;
-    let computerPoint = 0;
+const computerSelection = getComputerChoice();
 
-    for (let i = 1; i <= 5; i++) {
+const chooseRock = document.querySelector("#rock");
+const choosePaper = document.querySelector("#paper");
+const chooseScissors = document.querySelector("#scissors");
+const restartGame = document.querySelector("#restart");
+
+chooseRock.addEventListener('click', playRock);
+choosePaper.addEventListener('click', playPaper);
+chooseScissors.addEventListener('click', playScissors);
+restartGame.addEventListener('click', restartAll);
+
+const showResult = document.querySelector(".result");
+const playerScore = document.createElement("p");
+const compScore = document.createElement("p");
+const overall = document.createElement("p")
+
+showResult.appendChild(playerScore);
+showResult.appendChild(compScore);
+showResult.appendChild(overall);
+
+
+    function playRock() {
+
         const computerSelection = getComputerChoice();
-        const playerChoice = prompt("Your choice!");
-        const playerSelection = playerChoice.toLowerCase();
 
+        if(computerSelection === "paper") {
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
+            playerScore.textContent = 'Player: ' + playerPoint;
+            overall.textContent = "You lost! Paper beats rock";
+        } else if(computerSelection === "scissors") {
+            compScore.textContent = 'Computer: ' + computerPoint;
+            playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            overall.textContent = "You win!";
+        } else if(computerSelection === "rock") {
+            playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + computerPoint;
+            overall.textContent = "Its a tie!";
+        }
+
+        if (playerPoint == 5 || computerPoint ==5) {
+            overall.textContent = "End of game!";
+            removeEventListeners();
+            }
+    }
+
+    function playPaper() {
+
+        const computerSelection = getComputerChoice();
+
+        if(computerSelection === "scissors") {
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
+            playerScore.textContent = 'Player: ' + playerPoint;
+            overall.textContent = "You lost! Scissors cut paper!";
+        } else if(computerSelection === "rock") {
+            compScore.textContent = 'Computer: ' + computerPoint;
+            playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            overall.textContent = "You win! Rock lost to paper";
+        } else if(computerSelection === "paper") {
+            playerScore.textContent = 'Computer: ' + playerPoint;
+            compScore.textContent = 'Player: ' + computerPoint;
+            overall.textContent = "Its a tie!";
+        }
+
+        if (playerPoint == 5 || computerPoint ==5) {
+            overall.textContent = "End of game!";
+            removeEventListeners();
+            }
+
+        }
+
+    function playScissors() {
+
+        const computerSelection = getComputerChoice();
+
+        if(computerSelection === "rock") {
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
+            playerScore.textContent = 'Player: ' + playerPoint;
+            overall.textContent = "You lost! Rock beats scissors!";
+        } else if(computerSelection === "paper") {
+            compScore.textContent = 'Computer: ' + computerPoint;
+            playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            overall.textContent = "You win! Paper is cut by scissors!";
+        } else if(computerSelection === "scissors") {
+            playerScore.textContent = 'Computer: ' + playerPoint;
+            compScore.textContent = 'Player: ' + computerPoint;
+            overall.textContent = "Its a tie!";
+        }
+
+        if (playerPoint == 5 || computerPoint ==5) {
+            overall.textContent = "End of game!";
+            removeEventListeners();
+            }
+
+    }
+
+    function restartAll() {
+
+        playerPoint = 0;
+        computerPoint = 0;
+        playerScore.textContent = 'Player: 0';
+        compScore.textContent = 'Computer: 0';
+        overall.textContent = '';
+
+        chooseRock.addEventListener('click', playRock);
+        choosePaper.addEventListener('click', playPaper);
+        chooseScissors.addEventListener('click', playScissors);
+
+    }
+    
+
+    function removeEventListeners() {
+        chooseRock.removeEventListener('click', playRock);
+        choosePaper.removeEventListener('click', playPaper);
+        chooseScissors.removeEvenetListener('click', playScissors);
+    }
+
+
+
+
+   //const result = playRound(playerSelection, computerSelection);
+    //console.log(result);
+
+// for (let i = 1; i <= 5; i++) {    
+// }
+
+
+ /*
         function playRound(playerSelection, computerSelection) {
 
          if(playerSelection === "rock" && computerSelection === "paper") {
@@ -58,22 +179,4 @@ function game() {
             return "Error";
         }
     }
-
-    const result = playRound(playerSelection, computerSelection);
-    console.log(result);
-
-}
-
-console.log('Player points:', playerPoint);
-console.log('Computer points:', computerPoint);
-
-if (playerPoint > computerPoint) {
-    console.log('Player wins!');
-    } else if (playerPoint < computerPoint) {
-    console.log('You lose, computer wins!');
-    } else {
-    console.log('Its a tie!');
-    }
-}
-
-game();
+    */
