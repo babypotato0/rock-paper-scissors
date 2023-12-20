@@ -37,12 +37,12 @@ showResult.appendChild(overall);
         const computerSelection = getComputerChoice();
 
         if(computerSelection === "paper") {
-            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             overall.textContent = "You lost! Paper beats rock";
         } else if(computerSelection === "scissors") {
-            compScore.textContent = 'Computer: ' + computerPoint;
             playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            compScore.textContent = 'Computer: ' + computerPoint;
             overall.textContent = "You win!";
         } else if(computerSelection === "rock") {
             playerScore.textContent = 'Player: ' + playerPoint;
@@ -61,16 +61,16 @@ showResult.appendChild(overall);
         const computerSelection = getComputerChoice();
 
         if(computerSelection === "scissors") {
-            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             overall.textContent = "You lost! Scissors cut paper!";
         } else if(computerSelection === "rock") {
-            compScore.textContent = 'Computer: ' + computerPoint;
             playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            compScore.textContent = 'Computer: ' + computerPoint;
             overall.textContent = "You win! Rock lost to paper";
         } else if(computerSelection === "paper") {
-            playerScore.textContent = 'Computer: ' + playerPoint;
-            compScore.textContent = 'Player: ' + computerPoint;
+            playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + computerPoint;
             overall.textContent = "Its a tie!";
         }
 
@@ -86,16 +86,16 @@ showResult.appendChild(overall);
         const computerSelection = getComputerChoice();
 
         if(computerSelection === "rock") {
-            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + (computerPoint += 1);
             overall.textContent = "You lost! Rock beats scissors!";
         } else if(computerSelection === "paper") {
-            compScore.textContent = 'Computer: ' + computerPoint;
             playerScore.textContent = 'Player: ' + (playerPoint += 1);
+            compScore.textContent = 'Computer: ' + computerPoint;
             overall.textContent = "You win! Paper is cut by scissors!";
         } else if(computerSelection === "scissors") {
-            playerScore.textContent = 'Computer: ' + playerPoint;
-            compScore.textContent = 'Player: ' + computerPoint;
+            playerScore.textContent = 'Player: ' + playerPoint;
+            compScore.textContent = 'Computer: ' + computerPoint;
             overall.textContent = "Its a tie!";
         }
 
